@@ -1,0 +1,78 @@
+# === Java / Maven / Spring Boot ===
+# Compiled class files
+**/*.class
+
+# Maven target directory
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+*.log
+logs/
+
+# Spring Boot generated files
+*.war
+*.jar
+*.original
+
+# Dependency caches
+.mvn/
+
+# === IDE / Editor ===
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/
+
+# === OS / Misc ===
+.DS_Store
+Thumbs.db
+
+# === Environment & Secrets ===
+.env
+.env.*
+*.secret
+application-local.properties
+
+# === Tests / Reports (optional keep XML if needed) ===
+# Surefire & failsafe
+surefire-reports/
+failsafe-reports/
+
+# === Generated sources ===
+/generated-sources/
+/generated-test-sources/
+
+# === Coverage ===
+coverage/
+*.exec
+jacoco.exec
+
+# === Package manager lockfiles (if added accidentally) ===
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# === Docker artifacts ===
+*.tar
+
+# === Node or other frontend builds (if added later) ===
+/dist/
+/build/
+
+# === Others you may want to track consciously ===
+# Uncomment if you decide not to commit these
+# application.properties
+# pom.xml.versionsBackup
+
