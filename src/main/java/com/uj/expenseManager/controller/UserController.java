@@ -24,6 +24,11 @@ public class UserController extends BaseController {
     private final UserMapper userMapper;
     private final UserTokenService userTokenService;
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "Welcome to the Expense Management App!";
+    }
+
     /**
      * Get userDTO by username
      *
