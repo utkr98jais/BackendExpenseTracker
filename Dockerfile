@@ -1,16 +1,16 @@
 # Multi-stage build for smaller production image
 # ---- Build Stage ----
-FROM eclipse-temurin:17-jdk-alpine AS build
+# Use official Maven with Temurin JDK 17 so we don't rely on mvnw/.mvn being present
+FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Install Maven (use wrapper already in repo)
-COPY .mvn/ .mvn/
-COPY mvnw pom.xml ./
-RUN chmod +x mvnw && ./mvnw -q -e -DskipTests dependency:go-offline
+# Cache dependencies
+COPY pom.xml ./
+RUN mvn -q -DskipTests dependency:go-offline
 
 # Copy source and build
 COPY src/ src/
-RUN ./mvnw -q -DskipTests clean package
+RUN mvn -q -DskipTests clean package
 
 # ---- Runtime Stage ----
 FROM eclipse-temurin:17-jre-alpine AS runtime
